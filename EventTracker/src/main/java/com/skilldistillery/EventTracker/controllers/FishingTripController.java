@@ -74,22 +74,22 @@ public class FishingTripController {
 		return newTrip;
 
 	}
-//	@DeleteMapping("trips/{id}")
-//	public void delete(@PathVariable Integer id,HttpServletResponse resp) {
-//		
-//		try {
-//		if(service.deleteFishingTrip(id)) {
-//			resp.setStatus(200);
-//			
-//		}
-//		else {
-//			resp.setStatus(404);
-//		}
-//		}
-//		catch(Exception e) {
-//			resp.setStatus(400);
-//		}
-//		
-//	}
+	@DeleteMapping("trips/{id}")
+	public void delete(@PathVariable Integer id,HttpServletResponse resp) {
+		
+		try {
+		if(service.deleteFishingTrip(id)) {
+			resp.setStatus(200);
+			
+		}
+		else {
+			resp.setStatus(404);
+		}
+		}
+		catch(Exception e) {
+			resp.setStatus(400);
+		}
+		
+	}
 
 }

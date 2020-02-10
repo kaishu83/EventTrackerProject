@@ -78,20 +78,20 @@ public class FishingTripServiceImpl implements FishingTripService {
 		return newTrip;
 	}
 
-//	@Override
-//	public Boolean deleteFishingTrip(Integer id) {
-//		Optional<FishingTrip> op = repo.findById(id);
-//		FishingTrip trip = null;
-//		boolean status = false;
-//		if (op.isPresent()) {
-//			trip = op.get();
-//			repo.delete(trip);
-//			status = true;
-//		} else {
-//			return false;
-//		}
-//
-//		return null;
-//	}
+	@Override
+	public Boolean deleteFishingTrip(Integer id) {
+		Optional<FishingTrip> op = repo.findById(id);
+		FishingTrip trip = null;
+		boolean status = false;
+		if (op.isPresent()) {
+			trip = op.get();
+			repo.delete(trip);
+			status = true;
+		} else {
+			return false;
+		}
+
+		return null;
+	}
 
 }

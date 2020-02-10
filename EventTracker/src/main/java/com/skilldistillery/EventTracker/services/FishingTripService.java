@@ -17,6 +17,6 @@ public interface FishingTripService {
 
 	FishingTrip updateFishingTrip(Integer id, FishingTrip trip);
 	
-//	Boolean deleteFishingTrip(Integer id);
+	Boolean deleteFishingTrip(Integer id);
 
 }
