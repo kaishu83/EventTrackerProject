@@ -40,6 +40,24 @@ public class FishingTripController {
 		return trips;
 	}
 
+	@GetMapping("trips/{id}")
+	public FishingTrip findById(@PathVariable Integer id, HttpServletResponse resp) {
+		FishingTrip trip = null;
+		try {
+			trip = service.findById(id);
+			if (trip != null) {
+				resp.setStatus(201);
+			} else {
+				resp.setStatus(404);
+
+			}
+			return trip;
+		} catch (Exception e) {
+			resp.setStatus(400);
+			return trip;
+		}
+	}
+
 	@PostMapping("trips")
 	public FishingTrip create(@RequestBody FishingTrip trip, HttpServletResponse resp, HttpServletRequest req) {
 		FishingTrip newTrip = null;
@@ -74,22 +92,21 @@ public class FishingTripController {
 		return newTrip;
 
 	}
+
 	@DeleteMapping("trips/{id}")
-	public void delete(@PathVariable Integer id,HttpServletResponse resp) {
-		
+	public void delete(@PathVariable Integer id, HttpServletResponse resp) {
+
 		try {
-		if(service.deleteFishingTrip(id)) {
-			resp.setStatus(200);
-			
-		}
-		else {
-			resp.setStatus(404);
-		}
-		}
-		catch(Exception e) {
+			if (service.deleteFishingTrip(id)) {
+				resp.setStatus(200);
+
+			} else {
+				resp.setStatus(404);
+			}
+		} catch (Exception e) {
 			resp.setStatus(400);
 		}
-		
+
 	}
 
 }
